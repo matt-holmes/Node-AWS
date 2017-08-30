@@ -1,8 +1,6 @@
 var async = require('async');
 var AWS = require('aws-sdk');
-var gm = require('gm')
-            .subclass({ imageMagick: true});
-
+var gm = require('gm').subClass({imageMagick: true});
 var util = require('util');
 
 var DEFAULT_MAX_WIDTH = 200;
@@ -103,7 +101,7 @@ exports.handler = (event, context, callback) => {
 
         function storeMetadata(metadata, next) {
             var params = {
-                TableName = DDB_TABLE;
+                TableName : DDB_TABLE,
                 Item: {
                     name: { S: srcKey },
                     thumbnail: { S: dstKey },
@@ -126,7 +124,7 @@ exports.handler = (event, context, callback) => {
         if (err) {
             console.error(err);
         } else {
-            console.log('Sucessfully resized ' + srcBucket + '/' + srcKey + ' and uploaded to ' + dstBucket + '/' dstKey);
+            console.log('Sucessfully resized ' + srcBucket + '/' + srcKey + ' and uploaded to ' + dstBucket + '/' + dstKey);
         }
         callback();
         }
