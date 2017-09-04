@@ -11,8 +11,8 @@ var s3 = new AWS.S3();
 var dynamodb = new AWS.DynamoDB();
 
 function getImageType(key, callback) {
-    var typeMismatch = key.match(/\.([^.]*)$/);
-    if(!typeMismatch) {
+    var typetypeMatchMismatch = key.match(/\.([^.]*)$/);
+    if(!typeMatch) {
         callback("could not determine the image type for key: ${key}");
         return;
     }
@@ -21,7 +21,7 @@ function getImageType(key, callback) {
         callback('Unsupported image type: ${imageType}');
         return;
     }
-
+    
     return imageType;
 }
 
